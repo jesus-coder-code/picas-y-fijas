@@ -11,24 +11,41 @@ for i in range(4):
 		candidato = random.choice(dig)
 	numero_secreto = numero_secreto + candidato
 
-#numero_secreto = input('jugador1, ingrese el numero de 4 digitos a adivinar: ')
+""" numero_secreto = input('jugador1, ingrese el numero de 4 digitos a adivinar: ') """
 
 num = input('jugador2, adivina el numero: ')
 
 intento = 1
 
-while num != numero_secreto:
-	intento = intento + 1
-	picas = 0
-	fijas = 0
-
+def picas_y_fijas(numero_secreto, intento):
+	fijas = 0;
+	picas = 0;
 	for i in range(4):
 		if num[i] == numero_secreto[i]:
 			fijas = fijas + 1
 		elif num[i] in numero_secreto:
 			picas = picas + 1
-	print(dict(PICAS = picas, FIJAS = fijas))
+	dict = {
+		"PICAS": picas,
+		"FIJAS": fijas
+	}
+	return dict;
+	
+
+while num != numero_secreto:
+	""" picas = 0
+	fijas = 0 """
+
+	""" for i in range(4):
+		if num[i] == numero_secreto[i]:
+			fijas = fijas + 1
+		elif num[i] in numero_secreto:
+			picas = picas + 1 """
+	""" print(dict(PICAS = picas, FIJAS = fijas)) """
+	hola = picas_y_fijas(numero_secreto, intento);
+	print(hola);
 	num = input('dame otro numero de 4 digitos: ')
+	intento = intento + 1;
 
 	if num == numero_secreto:
 		break
